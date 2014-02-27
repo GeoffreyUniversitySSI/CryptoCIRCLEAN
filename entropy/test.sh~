@@ -1,0 +1,16 @@
+#!/bin/bash
+
+longueur=10
+i=0
+while test $i != $longueur
+do	    
+    tabOccu[$i]=0
+    i=$(($i+1))
+done
+i=0
+while test $i != $longueur
+do	    
+    tabOccu[$i]=$(($tabOccu[$i]+1))
+    i=$(($i+1))
+done
+

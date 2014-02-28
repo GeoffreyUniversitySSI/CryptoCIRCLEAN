@@ -1,0 +1,13 @@
+CreationClef.sh est le script permettant la creation de clef gpg (random) avec 4 parametre:
+    1: nom du fichier on l'on ecrit les clef que l'on crée
+    2: nombre de clef a crée
+    3: type de random pour la creation de la clef (pour le rasberry pas = 2 soit 0 ou 1)
+    4: le nombre de caractere dans la clef
+    
+EntropyClef.sh est le script qui calcul l'entropie des clefs avec 2 parametre:
+    1: nom du fichier contenant toutes les clef a analysé
+    2: nom du fichier on l'on stocke l'entropie de la clef
+    
+readFile.sh, test_CalculEntropy.sh, test_division.sh, writeKey_Entropy_EntropInv sont des script de teste de moreceau de code.
+
+Les fichier en txt sont des exemples d'utilisation des scripts

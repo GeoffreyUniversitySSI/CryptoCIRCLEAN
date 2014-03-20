@@ -66,6 +66,8 @@ Dissection()
 
 touch $2
 rm $2
+
+nbKey=0
     
 while read line
 do
@@ -101,8 +103,11 @@ do
     entropy=$(bc -l <<< "($entropy * 100)")
     entropyp=$(bc -l <<< "($entropyp * 100)")
     
-    full="$line $entropyp"
-    echo $full >> $2
+    echo -e "$line \t $entropyp" >> $2
+    
+    nbKey=$(($nbKey+1))
+    echo $nbKey
+    
 done < $1
 
 exit 0

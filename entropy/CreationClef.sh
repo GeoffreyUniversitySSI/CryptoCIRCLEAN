@@ -8,10 +8,10 @@ cmpt=0
 touch $1
 while test $cmpt != $2
 do 
-	    ls -R / >> lol.txt
+	    ls -R / >> /dev/null
 	    gpg --gen-random -armor $3 $4 >> $1
 	    cmpt=$(($cmpt+1))
-	    #echo "$cmpt"
+	    echo "$cmpt"
 done
 exit 0
 

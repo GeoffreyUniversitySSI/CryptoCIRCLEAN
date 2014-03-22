@@ -4,39 +4,36 @@
 
 inArray()
 { 
-    #$1 = lettre à rechercher
-    #$2 = longueur tableau
-    if [[ "$#" -ne 1 ]]; then
-        exit
-    else
-        cmpt1=0
-        nb=${#tabCarac[*]}
-        ok=0
+	#$1 = lettre à rechercher
+    	#$2 = longueur tableau
+	if [[ "$#" -ne 1 ]]; then
+        	exit
+    	else
+        	cmpt1=0
+        	nb=${#tabCarac[*]}
+        	ok=0
         
-        while test $cmpt1 != $nb
-        do	
-	        
-		    if [ "${1}" == "${tabCarac[${cmpt1}]}" ]; then
-		        occu=$cmpt1
-		        ok=$(($ok+1))
-            fi
-		    cmpt1=$(($cmpt1+1))
-		    
-	    done
+        	while test $cmpt1 != $nb
+        	do
+			if [ "${1}" == "${tabCarac[${cmpt1}]}" ]; then
+				occu=$cmpt1
+			        ok=$(($ok+1))
+        		fi
+			cmpt1=$(($cmpt1+1))
+		done
 	    
-	    if [ $ok -eq 0 ]; then
-	        occu=-1
-	    fi
-    fi
-
+		if [ $ok -eq 0 ]; then
+			occu=-1
+		fi
+	fi
 }
 
 Dissection()
 {
-    #$1 = clef de cryptage
-    clef=$1
-    longueur=${#clef}
-    cmpt=0
+	#$1 = clef de cryptage
+    	clef=$1
+    	longueur=${#clef}
+    	cmpt=0
 
     while test $cmpt != $longueur
     do

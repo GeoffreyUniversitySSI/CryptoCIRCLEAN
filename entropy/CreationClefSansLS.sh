@@ -6,11 +6,12 @@
 
 cmpt=0
 touch $1
+ls -R / >> /dev/null
 while test $cmpt != $2
 do 
 	    gpg --gen-random -armor $3 $4 >> $1
 	    cmpt=$(($cmpt+1))
-	    #echo "$cmpt"
+	    echo "$cmpt"
 done
 exit 0
 

@@ -10,11 +10,6 @@
 #	- check the rights of the user (TODO)
 #	- if all is in good way, encrypt the file
 
-# TODO test
-# TODO no asking for overwritte, check --no-batch or see batch
-# TODO no message on term
-# TODO put an extention if not exist for destination file ?
-
 #DEBUG
 DEBUG=1
 if [ -n "$DEBUG" ]; then
@@ -28,7 +23,9 @@ fi
 #-c symmetric encryption
 #-a (--armor) for ascii
 #-o output file
+#-q quiet mode
 #--passphrase-file file who contain passphrase
+#--yes assume "yes" on most questions (for overwrite for exemple)
 #--no-use-agent to disable GUI and asking for passphrase
 
-gpg -ca -o $2 --passphrase-file $3  --no-use-agent $1
+gpg -caq -o $2 --passphrase-file $3  --yes --no-use-agent $1

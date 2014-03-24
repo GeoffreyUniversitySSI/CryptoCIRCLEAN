@@ -2,7 +2,7 @@
 
 source ./constraint.sh
 source ./constraint_conv.sh
-./createTmpKey.sh
+./createKeyTmp.sh
 
 LOGFILE="${LOGS}/processing.txt"
 
@@ -39,5 +39,3 @@ main(){
     done
     return 0
 }
-
-

@@ -17,7 +17,7 @@ error_handler(){
 trap error_handler ERR TERM INT
 
 encrypt(){
-    gpg --homedir ${GPG} -ca --yes -o ${2}${1##$CURRENT_SRC} --passphrase-file ${KEY} ${1}
+    gpg --homedir ${GPG} -ca --yes -o ${2}${1##$CURRENT_SRC} --passphrase $(cat ${KEY}) ${1}
 }
 
 main(){

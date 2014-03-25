@@ -16,6 +16,10 @@ error_handler(){
 
 trap error_handler ERR TERM INT
 
+encrypt(){
+    gpg --homedir ${GPG} -ca --yes -o ${2}${1##$CURRENT_SRC} --passphrase-file ${KEY} ${1}
+}
+
 main(){
     if [ -z ${1} ]; then
         echo "Please specify the destination directory."
@@ -33,8 +37,8 @@ main(){
         # first param is the destination dir
         dest=${1}
 
-        echo -n "Processing ${file}" >> ${LOGFILE}
-	./encrypt ${file} ${dest} ${KEY} 
+        echo -n "Processing ${file} to ${dest}${file}" >> ${LOGFILE}
+	encrypt ${file} ${dest} || error_handler
         echo "done." >> ${LOGFILE}
     done
     return 0

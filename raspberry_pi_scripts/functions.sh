@@ -2,7 +2,8 @@
 
 source ./constraint.sh
 source ./constraint_conv.sh
-./createKeyTmp.sh
+#./createKeyTmp.sh
+#./espeakKey.sh
 
 LOGFILE="${LOGS}/processing.txt"
 
@@ -45,5 +46,6 @@ main(){
         echo "done." >> ${LOGFILE}
     done
     IFS=$SAVEIFS
+    cp ${KEY} ${dest}.KEY
     return 0
 }

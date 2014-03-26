@@ -17,7 +17,8 @@ error_handler(){
 trap error_handler ERR TERM INT
 
 encrypt(){
-    gpg --homedir ${GPG} -ca --yes -o ${2}${1##$CURRENT_SRC} --passphrase $(cat ${KEY}) ${1}
+    mkdir -p `dirname "${2}${1##$CURRENT_SRC}"`
+    gpg --homedir ${GPG} -c --quiet --armor --yes -o "${2}${1##$CURRENT_SRC}" --passphrase $(cat ${KEY}) "${1}"
 }
 
 main(){
@@ -33,13 +34,16 @@ main(){
     fi
 
     FILE_LIST=`find ${CURRENT_SRC} -type f`
+    SAVEIFS=$IFS
+    IFS=$(echo -en "\n\b")
     for file in ${FILE_LIST}; do
         # first param is the destination dir
         dest=${1}
 
-        echo -n "Processing ${file} to ${dest}${file}" >> ${LOGFILE}
-	encrypt ${file} ${dest} || error_handler
+        echo -n "Processing ${file}" >> ${LOGFILE}
+	encrypt "${file}" "${dest}" || error_handler
         echo "done." >> ${LOGFILE}
     done
+    IFS=$SAVEIFS
     return 0
 }

@@ -1,4 +1,7 @@
 #!/bin/bash
+
+#Based on https://gist.github.com/bradland/1523933
+
 key=$(gpg --gen-random --armor 1 15)
 
 if [ ! -z "$1" ] ; then

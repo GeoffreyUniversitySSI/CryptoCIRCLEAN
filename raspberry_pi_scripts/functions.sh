@@ -46,6 +46,7 @@ main(){
         echo "done." >> ${LOGFILE}
     done
     IFS=$SAVEIFS
-    cp ${KEY} ${dest}.KEY
+    #Debbug
+    #cp ${KEY} ${dest}.KEY
     return 0
 }

@@ -4,11 +4,6 @@
 #	*Third parameter as passphrase (stored in a file)
 #	*Symmetric encryption
 #
-# This is how the script works:
-#	- check if he has 3 args (TODO)
-#	- check the args (TODO)
-#	- check the rights of the user (TODO)
-#	- if all is in good way, encrypt the file
 
 #DEBUG
 DEBUG=1

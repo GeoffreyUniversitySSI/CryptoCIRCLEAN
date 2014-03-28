@@ -2,8 +2,10 @@
 
 #Based on https://gist.github.com/bradland/1523933
 
+#Key creation
 key=$(gpg --gen-random --armor 1 15)
 
+#Key into NATO
 if [ ! -z "$1" ] ; then
 LENGTH=${#key}
 COUNTER=0

@@ -1,7 +1,9 @@
 #!/bin/bash
 
+#Key gpg
 key=$(gpg --gen-random --armor 1 15)
 
+#Transformation of the key in NATO
 LENGTH=${#key}
 COUNTER=0
 until [ "$COUNTER" -ge "$LENGTH" ] ; do
@@ -194,6 +196,12 @@ done
 echo $key
 echo $OUTPUT
 
+#Speak the key with espeak
+#-vfr for french, -ven for english, -vde for deutsch
+#-s 1 speed of speaking (slowest option)
+#-k 2 to say "capital" for char wich are in capital
+#-g 20 time between words speaking
+#--punct="#$%&'()*+,-./:;<=>?@[]^_{|}~" allow these char in speaking
 espeak -vfr -s 1 "voici la clef qui seras répéter 3 fois"
 espeak -vfr -s 1 "Attention 3 2 1 go"
 espeak -ven -s 1 -k 2 -g 20 --punct="#$%&'()*+,-./:;<=>?@[]^_{|}~" "$OUTPUT"
